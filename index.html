@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: cursive;
+  }
+
+ input,
+    textarea {
+    width: 100%;
+    padding: 5px;
+    outline: none;
+  }
+
+  label {
+    line-height: 1.9rem;
+  }
+
+  input[type="submit"] {
+   transform: translate(2.2%);
+   padding: 3px;
+   margin-top: 0.6rem;
+   font-family: cursive;
+   font-weight: bold;
+  }
+
+ fieldset {
+   padding: 20px 40px;
+ }
+
+  </style>
+</head>
+<body>
+    
+  <form id="contactForm">
+    <fieldset>
+      <legend>Contact Me!!</legend>
+      <div class="form-control">
+        <label for="name">Name</label>
+        <input type="name" id="name" placeholder="Enter your name" required />
+      </div>
+
+      <div class="form-control">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required/>
+      </div>
+
+      <div class="form-control">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="Enter your message"
+          required
+        ></textarea>
+      </div>
+      <input type="submit" value="Send" class="submit-btn" />
+    </fieldset>
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent form from submitting
+
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var message = document.getElementById("message").value;
+
+          var subject = "New Contact Form Submission";
+          var body = "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message;
+
+          // You can replace the following code with your own logic to send the email
+          // This example uses the mailto: URL scheme, which opens the user's default email client
+          var mailtoLink = "mailto:snehautekar055@gmail.com" +
+                           "?subject=" + encodeURIComponent(subject) +
+                           "&body=" + encodeURIComponent(body);
+
+          window.location.href =mailtoLink;
+         
+      });
+  </script>
+  
+</form>
+    
+    
+</body>
+</html>
